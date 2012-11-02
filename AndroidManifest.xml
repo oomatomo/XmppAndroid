@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.oomatomo.android"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk android:minSdkVersion="10" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <!-- 時間設定 -->
+    <uses-permission android:name="android.permission.SET_TIME_ZONE"/>
+    <uses-permission android:name="android.permission.SET_TIME"/>
+    <!-- アラーム設定 -->
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+    <!-- ブラウザへの書き込み読み込みなど -->
+    <uses-permission android:name="com.android.browser.permission.WRITE_HISTORY_BOOKMARKS"/>
+    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS"/>
+    <!-- アカウント情報取得 -->
+    <uses-permission android:name="android.permission.ACCOUNT_MANAGER"/>
+	<uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+	<uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+	<uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+  	<uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+	<!-- バイブレーション -->
+  	<uses-permission android:name="android.permission.VIBRATE"/>
+  	<!-- Android起動時設定 -->
+  	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+  	<!-- 壁紙 -->
+  	<uses-permission android:name="android.permission.SET_WALLPAPER"/>
+  	<!--　再起動　電源ON・OFF -->
+  	<uses-permission android:name="android.permission.REBOOT"/>
+  	<uses-permission android:name="android.permission.DEVICE_POWER"/>
+  	<!-- 音量設定 -->
+  	<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+	<!-- GPSの設定 -->
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/>
+    
+    <application android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:debuggable="true">
+        <activity android:label="@string/app_name" android:name=".Android_PermissionActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <service android:name=".service.AllService">
+        </service>
+		<!-- 再起動時の処理 --> 
+        <receiver android:name="BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <uses-library android:name="com.google.android.maps" />
+    </application>
+
+</manifest>
